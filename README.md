@@ -53,6 +53,9 @@ WMIObject
 SystemInfo
 
 收集内容为json格式，启用了AES加密，加密函数再util里，可取消。
+![image](https://user-images.githubusercontent.com/29255605/210965008-49343ea6-c265-4137-9daa-80590984be57.png)
+
+![image](https://user-images.githubusercontent.com/29255605/210965224-fdcb8da6-6d72-491f-8be8-695daed94368.png)
 
 希望大家多多支持，点点赞
 
