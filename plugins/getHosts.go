@@ -36,7 +36,7 @@ func GetHosts() {
 	err = ioutil.WriteFile("./Output/hosts.json", []byte(encrypt), 0777)
 
 	if err != nil {
-		fmt.Println("[-] 收集错误", err.Error())
+		fmt.Println("[-] Hosts收集失败", err.Error())
 	} else {
 		fmt.Println("[+] Hosts收集成功")
 	}

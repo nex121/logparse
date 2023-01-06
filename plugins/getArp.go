@@ -51,7 +51,7 @@ func GetArp() {
 	encrypt, _ := utils.EncryptByAes(alJson)
 	err = ioutil.WriteFile("./Output/arp.json", []byte(encrypt), 0777)
 	if err != nil {
-		fmt.Println("[-] 收集错误", err.Error())
+		fmt.Println("[-] Arp收集失败", err.Error())
 	} else {
 		fmt.Println("[+] Arp收集成功")
 	}

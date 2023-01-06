@@ -56,7 +56,7 @@ func GetRecentFile() {
 	encrypt, _ := utils.EncryptByAes(rfJson)
 	err = ioutil.WriteFile("./Output/recent.json", []byte(encrypt), 0777)
 	if err != nil {
-		fmt.Println("[-] 收集错误", err.Error())
+		fmt.Println("[-] RecentFile收集失败", err.Error())
 	} else {
 		fmt.Println("[+] RecentFile收集成功")
 	}

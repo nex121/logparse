@@ -39,7 +39,7 @@ func GetHistory() {
 
 	err = ioutil.WriteFile("./Output/history.json", hisJson, 0777)
 	if err != nil {
-		fmt.Println("[-] 收集错误", err.Error())
+		fmt.Println("[-] History收集失败", err.Error())
 	} else {
 		fmt.Println("[+] History收集成功")
 	}

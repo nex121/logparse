@@ -32,7 +32,6 @@ func GetAccount() {
 	for _, i := range result {
 		result1 := strings.Fields(i)
 		if len(result1) > 1 {
-
 			ua.AccountType = result1[0]
 			ua.Caption = result1[1]
 			ua.Domain = result1[2]
@@ -47,7 +46,7 @@ func GetAccount() {
 	encrypt, _ := utils.EncryptByAes(uaJson)
 	err = ioutil.WriteFile("./Output/account.json", []byte(encrypt), 0777)
 	if err != nil {
-		fmt.Println("[-] 收集错误", err.Error())
+		fmt.Println("[-] Account收集失败", err.Error())
 	} else {
 		fmt.Println("[+] Account收集成功")
 	}

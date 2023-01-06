@@ -46,11 +46,10 @@ func GetRegeditList() {
 	rl.UAC = result4
 
 	rlJson, _ := json.Marshal(rl)
-	fmt.Println(string(rlJson))
 	encrypt, _ := utils.EncryptByAes(rlJson)
 	err = ioutil.WriteFile("./Output/regedit.json", []byte(encrypt), 0777)
 	if err != nil {
-		fmt.Println("[-] 收集错误", err.Error())
+		fmt.Println("[-] Regedit收集失败", err.Error())
 	} else {
 		fmt.Println("[+] Regedit收集成功")
 	}

@@ -114,7 +114,7 @@ func GetFireWallList() {
 	encrypt, _ := utils.EncryptByAes(fwlJson)
 	err = ioutil.WriteFile("./Output/Firewall.json", []byte(encrypt), 0777)
 	if err != nil {
-		fmt.Println("[-] 收集错误", err.Error())
+		fmt.Println("[-] Firewall收集失败", err.Error())
 	} else {
 		fmt.Println("[+] Firewall收集成功")
 	}

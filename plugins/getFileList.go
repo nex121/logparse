@@ -32,7 +32,7 @@ func GetFileList() {
 	out, _ := cmd.CombinedOutput()
 	result0 := utils.ConvertByte2String(out, "GB18030")
 	result00, _ := reg1.FindStringMatch(result0)
-	filepath.Walk("C:\\", func(path string, d os.FileInfo, err error) error {
+	filepath.Walk("C:\\", func(path string, d os.FileInfo, err error) error { //nolint:errcheck
 		if err != nil {
 			return nil
 		} else {
@@ -63,7 +63,7 @@ func GetFileList() {
 		return nil
 	})
 
-	filepath.Walk(result00.String(), func(path string, d os.FileInfo, err error) error {
+	filepath.Walk(result00.String(), func(path string, d os.FileInfo, err error) error { //nolint:errcheck
 		if err != nil {
 			return nil
 		} else {
@@ -98,7 +98,7 @@ func GetFileList() {
 	encrypt, _ := utils.EncryptByAes(flJson)
 	err := ioutil.WriteFile("./Output/FileList.json", []byte(encrypt), 0777)
 	if err != nil {
-		fmt.Println("[-] 收集错误", err.Error())
+		fmt.Println("[-] FileList收集失败", err.Error())
 	} else {
 		fmt.Println("[+] FileList收集成功")
 	}

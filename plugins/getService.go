@@ -58,7 +58,7 @@ func GetServicesList() {
 	encrypt, _ := utils.EncryptByAes(slJson)
 	err = ioutil.WriteFile("./Output/Services.json", []byte(encrypt), 0777)
 	if err != nil {
-		fmt.Println("[-] 收集错误", err.Error())
+		fmt.Println("[-] Service收集失败", err.Error())
 	} else {
 		fmt.Println("[+] Service收集成功")
 	}

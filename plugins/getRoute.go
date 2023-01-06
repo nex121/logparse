@@ -8,14 +8,20 @@ import (
 	"io/ioutil"
 	"logparseProject/utils"
 	"os/exec"
+	"strings"
 )
 
 type RouteList struct {
-	Route string `json:"Route"`
+	NetworkObjectives string `json:"NetworkObjectives"`
+	Netmask           string `json:"Netmask"`
+	Gateway           string `json:"Gateway"`
+	Interface         string `json:"Interface"`
+	LeapPoints        string `json:"LeapPoints"`
 }
 
 func GetRouteList() {
 	var rl RouteList
+	var rlArray []RouteList
 	cmd := exec.Command("route", "print")
 	out, err := cmd.CombinedOutput()
 	if err != nil {
@@ -24,12 +30,26 @@ func GetRouteList() {
 	}
 
 	result0 := utils.ConvertByte2String(out, "GB18030")
-	rl.Route = result0
-	rlJson, _ := json.Marshal(rl)
+	result1 := strings.Split(result0, "===========================================================================\r\n")
+	result2 := strings.Split(result1[3], "\r\n")
+	result2Len := len(result2)
+	result3 := result2[2 : result2Len-1]
+	for _, i := range result3 {
+		result4 := strings.Fields(i)
+		rl.NetworkObjectives = result4[0]
+		rl.Netmask = result4[1]
+		rl.Gateway = result4[2]
+		rl.Interface = result4[3]
+		rl.LeapPoints = result4[4]
+		rlArray = append(rlArray, rl)
+	}
+
+	rlJson, _ := json.Marshal(rlArray)
 	encrypt, _ := utils.EncryptByAes(rlJson)
+	//err = ioutil.WriteFile("./Output/route.json", rlJson, 0777)
 	err = ioutil.WriteFile("./Output/route.json", []byte(encrypt), 0777)
 	if err != nil {
-		fmt.Println("[-] 收集错误", err.Error())
+		fmt.Println("[-] Route收集失败", err.Error())
 	} else {
 		fmt.Println("[+] Route收集成功")
 	}

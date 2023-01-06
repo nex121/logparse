@@ -55,7 +55,7 @@ func GetStartUpFile() {
 	encrypt, _ := utils.EncryptByAes(sfJson)
 	err = ioutil.WriteFile("./Output/startUp.json", []byte(encrypt), 0777)
 	if err != nil {
-		fmt.Println("[-] 收集错误", err.Error())
+		fmt.Println("[-] StartupFile收集失败", err.Error())
 	} else {
 		fmt.Println("[+] StartupFile收集成功")
 	}

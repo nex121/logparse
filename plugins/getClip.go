@@ -26,7 +26,7 @@ func GetClip() {
 	encrypt, _ := utils.EncryptByAes(clJson)
 	err = ioutil.WriteFile("./Output/clip.json", []byte(encrypt), 0777)
 	if err != nil {
-		fmt.Println("收集错误", err.Error())
+		fmt.Println("Clip收集失败", err.Error())
 	} else {
 		fmt.Println("Clip收集成功")
 	}

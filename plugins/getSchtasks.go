@@ -68,7 +68,7 @@ func GetSchTasksList() {
 	encrypt, _ := utils.EncryptByAes(stlJson)
 	err = ioutil.WriteFile("./Output/SchTaskList.json", []byte(encrypt), 0777)
 	if err != nil {
-		fmt.Println("[-] 收集错误", err.Error())
+		fmt.Println("[-] Schtasks收集失败", err.Error())
 	} else {
 		fmt.Println("[+] Schtasks收集成功")
 	}

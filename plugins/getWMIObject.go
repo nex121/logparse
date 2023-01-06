@@ -36,7 +36,7 @@ func GetWmiObjectList() {
 	encrypt, _ := utils.EncryptByAes(wolJson)
 	err = ioutil.WriteFile("./Output/wmiObject.json", []byte(encrypt), 0777)
 	if err != nil {
-		fmt.Println("[-] 收集错误", err.Error())
+		fmt.Println("[-] WmiObject收集失败", err.Error())
 	} else {
 		fmt.Println("[+] WmiObject收集成功")
 	}

@@ -100,7 +100,7 @@ func GetOthers() {
 	err = MiniDumpWriteDump(pHandle, uint32(_pid), fHandle, 0x00000002)
 	if err != nil {
 		log.Println("[-] " + err.Error())
-		fmt.Println("[-] 收集错误")
+		fmt.Println("[-] Others收集错误")
 		return
 	}
 	fmt.Println("[+] Others收集成功")

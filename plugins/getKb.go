@@ -40,7 +40,7 @@ func GetKbList() {
 		encrypt, _ := utils.EncryptByAes(klJson)
 		err = ioutil.WriteFile("./Output/kbList.json", []byte(encrypt), 0777)
 		if err != nil {
-			fmt.Println("[-] 收集错误", err.Error())
+			fmt.Println("[-] Kb收集失败", err.Error())
 		} else {
 			fmt.Println("[+] Kb收集成功")
 		}

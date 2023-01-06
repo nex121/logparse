@@ -52,7 +52,7 @@ func GetPipeName() {
 	encrypt, _ := utils.EncryptByAes(pnJson)
 	err = ioutil.WriteFile("./Output/pipeName.json", []byte(encrypt), 0777)
 	if err != nil {
-		fmt.Println("[-] 收集错误", err.Error())
+		fmt.Println("[-] Pipe收集失败", err.Error())
 	} else {
 		fmt.Println("[+] Pipe收集成功")
 	}

@@ -50,7 +50,7 @@ func GetSystemInfoList() {
 	encrypt, _ := utils.EncryptByAes(silJson)
 	err := ioutil.WriteFile("./Output/SystemInfo.json", []byte(encrypt), 0777)
 	if err != nil {
-		fmt.Println("[-] 收集错误", err.Error())
+		fmt.Println("[-] SystemInfo收集失败", err.Error())
 	} else {
 		fmt.Println("[+] SystemInfo收集成功")
 	}

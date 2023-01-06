@@ -52,7 +52,7 @@ func GetSharesList() {
 	encrypt, _ := utils.EncryptByAes(slJson)
 	err = ioutil.WriteFile("./Output/shareList.json", []byte(encrypt), 0777)
 	if err != nil {
-		fmt.Println("[-] 收集错误", err.Error())
+		fmt.Println("[-] Shares收集失败", err.Error())
 	} else {
 		fmt.Println("[+] Shares收集成功")
 	}

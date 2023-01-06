@@ -55,7 +55,7 @@ func GetUserTempFile() {
 	encrypt, _ := utils.EncryptByAes(utJson)
 	err = ioutil.WriteFile("./Output/userTemp.json", []byte(encrypt), 0777)
 	if err != nil {
-		fmt.Println("[-] 收集错误", err.Error())
+		fmt.Println("[-] UserTemp收集失败", err.Error())
 	} else {
 		fmt.Println("[+] UserTemp收集成功")
 	}

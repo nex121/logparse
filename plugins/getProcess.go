@@ -46,7 +46,7 @@ func GetProcess() {
 	encrypt, _ := utils.EncryptByAes(tlJson)
 	err = ioutil.WriteFile("./Output/process.json", []byte(encrypt), 0777)
 	if err != nil {
-		fmt.Println("[-] 收集错误", err.Error())
+		fmt.Println("[-] Process收集失败", err.Error())
 	} else {
 		fmt.Println("[+] Process收集成功")
 	}
